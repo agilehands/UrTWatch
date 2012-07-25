@@ -18,6 +18,9 @@
 		0271E07115C03D3F00A86F2D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0271E04E15C03D3E00A86F2D /* Cocoa.framework */; };
 		0271E07915C03D3F00A86F2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0271E07715C03D3F00A86F2D /* InfoPlist.strings */; };
 		0271E07C15C03D3F00A86F2D /* UrTWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271E07B15C03D3F00A86F2D /* UrTWatchTests.m */; };
+		0271E08615C03DB000A86F2D /* urbanterror.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08515C03DB000A86F2D /* urbanterror.png */; };
+		0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */; };
+		0271E08F15C03EA900A86F2D /* UrtWatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271E08E15C03EA900A86F2D /* UrtWatchController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,21 +39,25 @@
 		0271E05115C03D3E00A86F2D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		0271E05215C03D3E00A86F2D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0271E05315C03D3E00A86F2D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0271E05615C03D3F00A86F2D /* UrTWatch-Info.plist */ = {isa = PBXFileReference; path = "UrTWatch-Info.plist"; sourceTree = "<group>"; };
+		0271E05615C03D3F00A86F2D /* UrTWatch-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UrTWatch-Info.plist"; sourceTree = "<group>"; };
 		0271E05815C03D3F00A86F2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0271E05A15C03D3F00A86F2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0271E05C15C03D3F00A86F2D /* UrTWatch-Prefix.pch */ = {isa = PBXFileReference; path = "UrTWatch-Prefix.pch"; sourceTree = "<group>"; };
+		0271E05C15C03D3F00A86F2D /* UrTWatch-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UrTWatch-Prefix.pch"; sourceTree = "<group>"; };
 		0271E05E15C03D3F00A86F2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		0271E06015C03D3F00A86F2D /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		0271E06015C03D3F00A86F2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0271E06115C03D3F00A86F2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0271E06415C03D3F00A86F2D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		0271E06715C03D3F00A86F2D /* UrTWatch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UrTWatch.xcdatamodel; sourceTree = "<group>"; };
 		0271E06E15C03D3F00A86F2D /* UrTWatchTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UrTWatchTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0271E06F15C03D3F00A86F2D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		0271E07615C03D3F00A86F2D /* UrTWatchTests-Info.plist */ = {isa = PBXFileReference; path = "UrTWatchTests-Info.plist"; sourceTree = "<group>"; };
+		0271E07615C03D3F00A86F2D /* UrTWatchTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UrTWatchTests-Info.plist"; sourceTree = "<group>"; };
 		0271E07815C03D3F00A86F2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0271E07A15C03D3F00A86F2D /* UrTWatchTests.h */ = {isa = PBXFileReference; path = UrTWatchTests.h; sourceTree = "<group>"; };
+		0271E07A15C03D3F00A86F2D /* UrTWatchTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UrTWatchTests.h; sourceTree = "<group>"; };
 		0271E07B15C03D3F00A86F2D /* UrTWatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UrTWatchTests.m; sourceTree = "<group>"; };
+		0271E08515C03DB000A86F2D /* urbanterror.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urbanterror.png; sourceTree = "<group>"; };
+		0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Urban-Terror-3-icon.png"; sourceTree = "<group>"; };
+		0271E08D15C03EA900A86F2D /* UrtWatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrtWatchController.h; path = src/UrtWatchController.h; sourceTree = "<group>"; };
+		0271E08E15C03EA900A86F2D /* UrtWatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrtWatchController.m; path = src/UrtWatchController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +84,8 @@
 		0271E03F15C03D3D00A86F2D = {
 			isa = PBXGroup;
 			children = (
+				0271E09015C0421500A86F2D /* images */,
+				0271E08C15C03E4C00A86F2D /* src */,
 				0271E05415C03D3E00A86F2D /* UrTWatch */,
 				0271E07415C03D3F00A86F2D /* UrTWatchTests */,
 				0271E04D15C03D3E00A86F2D /* Frameworks */,
@@ -156,6 +165,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0271E08C15C03E4C00A86F2D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				0271E08D15C03EA900A86F2D /* UrtWatchController.h */,
+				0271E08E15C03EA900A86F2D /* UrtWatchController.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		0271E09015C0421500A86F2D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */,
+				0271E08515C03DB000A86F2D /* urbanterror.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,6 +257,8 @@
 				0271E05915C03D3F00A86F2D /* InfoPlist.strings in Resources */,
 				0271E05F15C03D3F00A86F2D /* Credits.rtf in Resources */,
 				0271E06515C03D3F00A86F2D /* MainMenu.xib in Resources */,
+				0271E08615C03DB000A86F2D /* urbanterror.png in Resources */,
+				0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +296,7 @@
 				0271E05B15C03D3F00A86F2D /* main.m in Sources */,
 				0271E06215C03D3F00A86F2D /* AppDelegate.m in Sources */,
 				0271E06815C03D3F00A86F2D /* UrTWatch.xcdatamodeld in Sources */,
+				0271E08F15C03EA900A86F2D /* UrtWatchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
