@@ -21,6 +21,7 @@
 		0271E08615C03DB000A86F2D /* urbanterror.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08515C03DB000A86F2D /* urbanterror.png */; };
 		0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */; };
 		0271E08F15C03EA900A86F2D /* UrtWatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271E08E15C03EA900A86F2D /* UrtWatchController.m */; };
+		02E4F5AB15C07338008A94B0 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 02E4F5AA15C07338008A94B0 /* UrTWatch.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Urban-Terror-3-icon.png"; sourceTree = "<group>"; };
 		0271E08D15C03EA900A86F2D /* UrtWatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrtWatchController.h; path = src/UrtWatchController.h; sourceTree = "<group>"; };
 		0271E08E15C03EA900A86F2D /* UrtWatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrtWatchController.m; path = src/UrtWatchController.m; sourceTree = "<group>"; };
+		02E4F5AA15C07338008A94B0 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		0271E03F15C03D3D00A86F2D = {
 			isa = PBXGroup;
 			children = (
+				02E4F5A915C07338008A94B0 /* dist */,
 				0271E09015C0421500A86F2D /* images */,
 				0271E08C15C03E4C00A86F2D /* src */,
 				0271E05415C03D3E00A86F2D /* UrTWatch */,
@@ -183,6 +186,14 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		02E4F5A915C07338008A94B0 /* dist */ = {
+			isa = PBXGroup;
+			children = (
+				02E4F5AA15C07338008A94B0 /* UrTWatch.app */,
+			);
+			path = dist;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,6 +270,7 @@
 				0271E06515C03D3F00A86F2D /* MainMenu.xib in Resources */,
 				0271E08615C03DB000A86F2D /* urbanterror.png in Resources */,
 				0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */,
+				02E4F5AB15C07338008A94B0 /* UrTWatch.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +482,7 @@
 				0271E08115C03D3F00A86F2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0271E08215C03D3F00A86F2D /* Build configuration list for PBXNativeTarget "UrTWatchTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +491,7 @@
 				0271E08415C03D3F00A86F2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
