@@ -21,7 +21,7 @@
 		0271E08615C03DB000A86F2D /* urbanterror.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08515C03DB000A86F2D /* urbanterror.png */; };
 		0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */; };
 		0271E08F15C03EA900A86F2D /* UrtWatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271E08E15C03EA900A86F2D /* UrtWatchController.m */; };
-		02E4F5AB15C07338008A94B0 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 02E4F5AA15C07338008A94B0 /* UrTWatch.app */; };
+		02E4F5B015C0C6EB008A94B0 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 02E4F5AF15C0C6EB008A94B0 /* UrTWatch.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Urban-Terror-3-icon.png"; sourceTree = "<group>"; };
 		0271E08D15C03EA900A86F2D /* UrtWatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrtWatchController.h; path = src/UrtWatchController.h; sourceTree = "<group>"; };
 		0271E08E15C03EA900A86F2D /* UrtWatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrtWatchController.m; path = src/UrtWatchController.m; sourceTree = "<group>"; };
-		02E4F5AA15C07338008A94B0 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
+		02E4F5AF15C0C6EB008A94B0 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 		02E4F5A915C07338008A94B0 /* dist */ = {
 			isa = PBXGroup;
 			children = (
-				02E4F5AA15C07338008A94B0 /* UrTWatch.app */,
+				02E4F5AF15C0C6EB008A94B0 /* UrTWatch.app */,
 			);
 			path = dist;
 			sourceTree = "<group>";
@@ -270,7 +270,7 @@
 				0271E06515C03D3F00A86F2D /* MainMenu.xib in Resources */,
 				0271E08615C03DB000A86F2D /* urbanterror.png in Resources */,
 				0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */,
-				02E4F5AB15C07338008A94B0 /* UrTWatch.app in Resources */,
+				02E4F5B015C0C6EB008A94B0 /* UrTWatch.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +387,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -408,7 +408,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
 			name = Release;
