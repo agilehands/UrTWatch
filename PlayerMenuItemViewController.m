@@ -29,8 +29,13 @@
 - (void)update:(Player*) player{
 	[imgRankChange setHidden:YES];
 	
-	txtName.stringValue = player.name;
-	txtScore.stringValue = [NSString stringWithFormat:@"%d", player.kill];
+	txtName.stringValue = player.name;	
+	if (player.lastKill < player.kill) {
+		txtScore.stringValue = [NSString stringWithFormat:@"%d (+)", player.kill];
+	} else {
+		txtScore.stringValue = [NSString stringWithFormat:@"%d", player.kill];
+		txtScore.textColor  =[NSColor blueColor];
+	}
 	if ([player rankChange] > 0) {
 		imgRankChange.image = [NSImage imageNamed:@"up.png"];
 		[imgRankChange setHidden:NO];

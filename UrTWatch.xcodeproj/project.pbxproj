@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022A98F415C16904002DD650 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 022A98F315C16904002DD650 /* UrTWatch.app */; };
+		022A98F815C1697B002DD650 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 022A98F615C1697B002DD650 /* UrTWatch.app */; };
+		022A98F915C1697B002DD650 /* UrTWatch.app.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 022A98F715C1697B002DD650 /* UrTWatch.app.dSYM */; };
 		022F1D7F15C141FE00BA8187 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D7E15C141FE00BA8187 /* Player.m */; };
 		022F1D8315C1430E00BA8187 /* RecordBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D8215C1430E00BA8187 /* RecordBook.m */; };
 		022F1D8715C15AF000BA8187 /* PlayerMenuItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D8515C15AF000BA8187 /* PlayerMenuItemViewController.m */; };
@@ -15,7 +18,6 @@
 		022F1D8E15C15FE900BA8187 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D8C15C15FE900BA8187 /* down.png */; };
 		022F1D8F15C15FE900BA8187 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D8D15C15FE900BA8187 /* up.png */; };
 		022F1D9215C1631A00BA8187 /* PlayerMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D9115C1631A00BA8187 /* PlayerMenuItemView.m */; };
-		022F1D9415C163FF00BA8187 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D9315C163FF00BA8187 /* UrTWatch.app */; };
 		0271E04F15C03D3E00A86F2D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0271E04E15C03D3E00A86F2D /* Cocoa.framework */; };
 		0271E05915C03D3F00A86F2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0271E05715C03D3F00A86F2D /* InfoPlist.strings */; };
 		0271E05B15C03D3F00A86F2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271E05A15C03D3F00A86F2D /* main.m */; };
@@ -45,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		022A98F315C16904002DD650 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
+		022A98F615C1697B002DD650 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
+		022A98F715C1697B002DD650 /* UrTWatch.app.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = UrTWatch.app.dSYM; sourceTree = "<group>"; };
 		022F1D7D15C141FE00BA8187 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = src/Model/Player.h; sourceTree = "<group>"; };
 		022F1D7E15C141FE00BA8187 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = src/Model/Player.m; sourceTree = "<group>"; };
 		022F1D8115C1430E00BA8187 /* RecordBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordBook.h; path = src/Model/RecordBook.h; sourceTree = "<group>"; };
@@ -57,7 +62,6 @@
 		022F1D8D15C15FE900BA8187 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
 		022F1D9015C1631A00BA8187 /* PlayerMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerMenuItemView.h; sourceTree = "<group>"; };
 		022F1D9115C1631A00BA8187 /* PlayerMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerMenuItemView.m; sourceTree = "<group>"; };
-		022F1D9315C163FF00BA8187 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
 		0271E04A15C03D3E00A86F2D /* UrTWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrTWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0271E04E15C03D3E00A86F2D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0271E05115C03D3E00A86F2D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -107,6 +111,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022A98F515C1697B002DD650 /* Release */ = {
+			isa = PBXGroup;
+			children = (
+				022A98F615C1697B002DD650 /* UrTWatch.app */,
+				022A98F715C1697B002DD650 /* UrTWatch.app.dSYM */,
+			);
+			path = Release;
+			sourceTree = "<group>";
+		};
 		022F1D8915C15C4C00BA8187 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +133,7 @@
 		0271E03F15C03D3D00A86F2D = {
 			isa = PBXGroup;
 			children = (
+				022A98F515C1697B002DD650 /* Release */,
 				022F1D8915C15C4C00BA8187 /* images */,
 				02E4F5A915C07338008A94B0 /* dist */,
 				0271E09015C0421500A86F2D /* images */,
@@ -230,7 +244,7 @@
 		02E4F5A915C07338008A94B0 /* dist */ = {
 			isa = PBXGroup;
 			children = (
-				022F1D9315C163FF00BA8187 /* UrTWatch.app */,
+				022A98F315C16904002DD650 /* UrTWatch.app */,
 			);
 			path = dist;
 			sourceTree = "<group>";
@@ -328,7 +342,9 @@
 				022F1D8B15C15C4C00BA8187 /* player_item_bg.png in Resources */,
 				022F1D8E15C15FE900BA8187 /* down.png in Resources */,
 				022F1D8F15C15FE900BA8187 /* up.png in Resources */,
-				022F1D9415C163FF00BA8187 /* UrTWatch.app in Resources */,
+				022A98F415C16904002DD650 /* UrTWatch.app in Resources */,
+				022A98F815C1697B002DD650 /* UrTWatch.app in Resources */,
+				022A98F915C1697B002DD650 /* UrTWatch.app.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
