@@ -202,10 +202,6 @@
 	[self performSelectorInBackground:@selector(updateInfo) withObject:nil];
 		
 }
--(BOOL)validateMenuItem:(NSMenuItem*)item{	
-	return YES;
-}
-
 - (void) onPlayerSelect:(id)sender{
 	NSMenuItem* item = (NSMenuItem*)sender;
 	NSLog(@"Selected Player: %@", item.title);
