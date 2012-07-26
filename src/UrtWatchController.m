@@ -190,6 +190,19 @@
 }
 - (void)menuNeedsUpdate:(NSMenu *)menu{
 	NSLog(@"in menu needs update %@", NSStringFromRect([[[NSApp currentEvent] window] frame]));	
+	[txtServerAddress setNeedsDisplay];
+	[txtServerAddress needsDisplay];
+	[txtServerAddress becomeFirstResponder];
+	
+	[txtPort setNeedsDisplay];
+	[txtPort needsDisplay];
+	
+	[txtInterval setNeedsDisplay];
+	[txtInterval needsDisplay];
+	
+	[[[menu.itemArray objectAtIndex:0] view] needsDisplay];
+	[[[menu.itemArray objectAtIndex:0] view] display];
+
 }
 - (NSInteger)numberOfItemsInMenu:(NSMenu *)menu{
 	NSLog(@"in number of itema");
@@ -238,6 +251,17 @@
 		[txtInterval setEditable:isRunning];
 		[txtInterval setSelectable:isRunning];
 		[txtInterval setEnabled:isRunning];
+		
+		[txtServerAddress setNeedsDisplay];
+		[txtServerAddress needsDisplay];
+		[txtServerAddress becomeFirstResponder];
+		
+		[txtPort setNeedsDisplay];
+		[txtPort needsDisplay];
+		
+		[txtInterval setNeedsDisplay];
+		[txtInterval needsDisplay];
+
 		
 		
 		isRunning = NO;
