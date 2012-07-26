@@ -17,12 +17,38 @@
 #include <unistd.h>
 #include <string.h>
 
+#import "PlayerMenuItemViewController.h"
+
 #define BUFFER_SIZE 1024*8*10
 
+@implementation NSStatusItem(UrtWatch)
+-(void)mouseDown:(NSEvent *)theEvent{
+	NSLog(@"Mouse down event in Status Item");
+}
+@end
+@implementation NSMenu(UrtWatch)
+-(void)mouseDown:(NSEvent *)theEvent{
+	NSLog(@"Mouse down event in Status Item");
+}
+@end
+@implementation NSTextField(UrtWatch)
+
+- (void)mouseEntered:(NSEvent *)theEvent{
+	self.backgroundColor = [NSColor grayColor];
+}
+- (void)mouseExited:(NSEvent *)theEvent{
+	self.backgroundColor = [NSColor whiteColor];
+}
+-(void)mouseDown:(NSEvent *)theEvent{
+	NSLog(@"Mouse down event: %@", self.stringValue);
+}
+
+@end
 @implementation UrtWatchController
 @synthesize viewSettings, txtPort, txtServerAddress;
 @synthesize menuQuite, menuConnect, connectionIndicator, reconnectTimer;
 @synthesize btnConnect, statusMenu, statusItem, statusImage, statusHighlightImage;
+@synthesize txtInterval, stickyServer;
 
 - (void) awakeFromNib{
 	
@@ -46,9 +72,15 @@
 	[statusItem setToolTip:@"UrT Watcher"];
 	//Enables highlighting
 	[statusItem setHighlightMode:YES];
+	//statusItem.target = self;
+	//[statusItem setAction:@selector(openWin:)];
 		
 }
-
+-(void)openWin:(id)sender{
+    CGRect rect = [[[NSApp currentEvent] window] frame];
+	[self.viewSettings setFrameOrigin:rect.origin];
+	[viewSettings makeKeyAndOrderFront:nil];
+}
 - (void) dealloc {
 	//Releases the 2 images we loaded into memory
 	statusItem = nil;
@@ -63,119 +95,118 @@
 	self.statusItem = nil;
 	self.statusImage  =nil;
 	self.statusHighlightImage  =nil;
+	self.txtInterval = nil;
 }
 
 - (void)updateInfo{
-	[btnConnect setHidden:YES];
-	[connectionIndicator setHidden:NO];
+	if (!isRunning) {
+		NSLog(@"I should not repeat!");
+		return;
+	}
 	
-	dispatch_async(dispatch_queue_create("com.xapplab.urtwatcher", 
-										 0), ^(void){
-		NSLog(@"Connecting to server...");
-		int sock, n;
-		unsigned int length;
-		struct sockaddr_in server, from;
-		struct hostent *hp;
-		char buffer[BUFFER_SIZE];
-		sock= socket(AF_INET, SOCK_DGRAM, 0);
-		if (sock < 0){
+	if (!self.stickyServer) {
+		self.stickyServer = [[UrTServer alloc] initWithHost:txtServerAddress.stringValue 
+												 portNumber:[txtPort.stringValue intValue]];
+	}
+//	[btnConnect setHidden:YES];
+//	[connectionIndicator setHidden:NO];
+//	[connectionIndicator startAnimation:self];
+	NSLog(@"%@", txtServerAddress.stringValue);	
+	__block UrtWatchController* myself = self;
+	dispatch_queue_t queue = dispatch_queue_create("com.xapplab.urtwatcher", 							   0);
+	dispatch_async(queue, ^(void){
+		if (myself.stickyServer) {
+			[myself.stickyServer reload];
+		}
+		
 			dispatch_async(dispatch_get_main_queue(), ^(void){
-				[btnConnect setHidden:NO];
-				[connectionIndicator setHidden:YES];
-			});			
-			[self error:"Failed to create socket"];
-			return;
-		}
-		
-		server.sin_family = AF_INET;
-		hp = gethostbyname([[txtServerAddress stringValue] cStringUsingEncoding:NSASCIIStringEncoding]);	
-		if (hp==0){ 
-			dispatch_async(dispatch_get_main_queue(), ^(void){
-				[btnConnect setHidden:NO];
-				[connectionIndicator setHidden:YES];
-			});	
-			[self error:"Unknown host"];
-			return;
-		}
-		
-		bcopy((char *)hp->h_addr, 
-			  (char *)&server.sin_addr,
-			  hp->h_length);
-		server.sin_port = htons([[txtPort stringValue] intValue]);
-		length=sizeof(struct sockaddr_in);
-		///printf("Please enter the message: ");
-		bzero(buffer,256);
-		//fgets(buffer,255,stdin);
-		n=sendto(sock,"\377\377\377\377getstatus",
-				 13,0,(const struct sockaddr *)&server,length);
-		if (n < 0) {
-			[self error:"Failed to send message"];;
-			return;
-		}
-		n = recvfrom(sock,buffer,BUFFER_SIZE,0,(struct sockaddr *)&from, &length);
-		if (n < 0){
-			[self error:"Nothing received from host"];
-			return ;
-		}
-		write(1,"Got an ack: ",12);
-		write(1,buffer,n);
-		close(sock);
-		
-		__block NSString* result = [NSString stringWithCString:buffer encoding:NSASCIIStringEncoding];
-		dispatch_async(dispatch_get_main_queue(), ^(void){
-			// first clear any previous player info	
-			for (NSMenuItem* item in statusItem.menu.itemArray) {
-				NSLog(@"Deleting menu item: %@", item.title);
-				[statusMenu removeItem:item];
-			}
-			
-			// add connect item
-			[statusMenu addItem:self.menuConnect];									
-			NSArray* arr = [result componentsSeparatedByString:@"\n"];
-			NSString* serverInfo;
-			if ([arr count] > 1) {
-				serverInfo = [arr objectAtIndex:1];
-			}
-			
-			if ([arr count] > 2) {
+				// first clear any previous player info	
+				for (NSMenuItem* item in statusItem.menu.itemArray) {
+					[statusMenu removeItem:item];
+				}
+				
+				// add connect item
+				[statusMenu addItem:myself.menuConnect];						
+				
+				// add players
+				NSArray* players = [myself.stickyServer.currentGameRecord getPlayers:YES];
 				// add separator
 				[statusItem.menu addItem:[NSMenuItem separatorItem]];
 				
-				int i = 2;
-				for (; i< [arr count]; i++) {
-					NSString* playerInfo = [arr objectAtIndex:i];
-					if (playerInfo.length > 3) {
-						playerInfo = [playerInfo stringByReplacingOccurrencesOfString:@"\"" withString:@""];						
-//						NSArray* stats = [playerInfo componentsSeparatedByString:@" "];
-//						NSString* menuTitle = [NSString stringWithFormat:@"%@ \t\t\t Kill: %@  \t\t\t (%@)", [stats objectAtIndex:2], [stats objectAtIndex:0], [stats objectAtIndex:1]];
-						NSMenuItem* item = [[NSMenuItem alloc] initWithTitle:playerInfo 
-																	  action:@selector(onPlayerSelect:) 
-															   keyEquivalent:@""];
-						item.target  =self;
-						[statusItem.menu addItem:item];
-					}
+				if ([players count]) {					
+					for (Player* player in players) {
+						PlayerMenuItemViewController* vc = [[PlayerMenuItemViewController alloc] initWithNibName:@"PlayerMenuItemViewController" bundle:nil];
+						[vc view];
+						
+						[vc update:player];
+						[vc.view needsDisplay];
+						[vc.view display];
+						
+//						NSTextField* textField = [[NSTextField alloc] initWithFrame:NSMakeRect(10, 5, 250, 20)];
+//						[textField setBezeled:NO];
+//						[textField setAcceptsTouchEvents:YES];
+//						[textField setDrawsBackground:NO];
+//						[textField setEditable:NO];
+//						[textField setSelectable:NO];
+//						[textField setEnabled:YES];
+//						
+//						NSString* rankChange = [player rankChange] > 0 ? @"+" : [player rankChange] == 0 ? @"~" : @"-";
+//						
+//						textField.stringValue = [NSString stringWithFormat:@"\t %@ [ %d <- %d ] %@ \t %d",rankChange, player.currentRank, player.lastRank,  player.name, player.kill];
+//						
+						
+						NSMenuItem* item = [[NSMenuItem alloc] init];
+						item.target  =myself;
+						[item setAction:@selector(onPlayerSelect:)];
+						item.view = vc.view;
+						[statusItem.menu addItem:item];	
+					}					
+				} else {					
+					NSMenuItem* item = [[NSMenuItem alloc] init];
+					item.title  =@"No player online";
+					[statusItem.menu addItem:item];	
 				}
-				
 				// add separator
 				[statusMenu addItem:[NSMenuItem separatorItem]];
-			}
-			
-			// add quit item
-			// add connect item
-			[statusMenu addItem:self.menuQuite];
-			
-			[btnConnect setHidden:NO];
-			[connectionIndicator setHidden:YES];			
-		});			
+				
+				// add quit item
+				[statusMenu addItem:myself.menuQuite];
+				
+//				[btnConnect setHidden:NO];
+//				[connectionIndicator setHidden:YES];
+				
+				double delayInSeconds = delayInSeconds = [txtInterval.stringValue doubleValue];
+				if (delayInSeconds < 1) {
+					delayInSeconds = 5;
+					txtInterval.stringValue = @"5";
+				}
+				dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+				dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+					[myself updateInfo];
+				});
+			});			
+		//}		
 	});
+}
+- (void)menuNeedsUpdate:(NSMenu *)menu{
+	NSLog(@"in menu needs update %@", NSStringFromRect([[[NSApp currentEvent] window] frame]));	
+}
+- (NSInteger)numberOfItemsInMenu:(NSMenu *)menu{
+	NSLog(@"in number of itema");
+	return 10;
+}
+- (BOOL)menu:(NSMenu *)menu updateItem:(NSMenuItem *)item atIndex:(NSInteger)index shouldCancel:(BOOL)shouldCancel{
+	NSLog(@"update item");
+	return YES;
 }
 - (void)error:(const char*) msg
 {
-	NSRunAlertPanel(@"Error", [NSString stringWithCString:msg 
-												encoding:NSUTF8StringEncoding]
-					, @"Ok"
-					, nil
-					, nil);
+	isRunning = NO;
+//	NSRunAlertPanel(@"Error", [NSString stringWithCString:msg 
+//												encoding:NSUTF8StringEncoding]
+//					, @"Ok"
+//					, nil
+//					, nil);
     perror(msg);
 }
 
@@ -186,24 +217,69 @@
 	[viewSettings close];
 }
 -(IBAction)onGo:(id)sender{	
-	
-	if (self.reconnectTimer) {
-		if (self.reconnectTimer.isValid) {
-			[self.reconnectTimer invalidate];
-		}
+	NSLog(@"Clicked button: %@", btnConnect.title);
+	if (isRunning) {
+		[btnConnect setTitle:@"Go"];
+		
+		[txtPort setBezeled:isRunning];
+		[txtPort setDrawsBackground:isRunning];
+		[txtPort setEditable:isRunning];
+		[txtPort setSelectable:isRunning];
+		[txtPort setEnabled:isRunning];				
+		
+		[txtServerAddress setBezeled:isRunning];
+		[txtServerAddress setDrawsBackground:isRunning];
+		[txtServerAddress setEditable:isRunning];
+		[txtServerAddress setSelectable:isRunning];
+		[txtServerAddress setEnabled:isRunning];		
+		
+		[txtInterval setBezeled:isRunning];
+		[txtInterval setDrawsBackground:isRunning];
+		[txtInterval setEditable:isRunning];
+		[txtInterval setSelectable:isRunning];
+		[txtInterval setEnabled:isRunning];
+		
+		
+		isRunning = NO;
+		[menuConnect.view needsDisplay];
+		[menuConnect.view display];
+	} else {
+		[btnConnect setTitle:@"Edit"];
+		[txtPort setBezeled:isRunning];
+		[txtPort setDrawsBackground:isRunning];
+		[txtPort setEditable:isRunning];
+		[txtPort setSelectable:isRunning];
+		[txtPort setEnabled:isRunning];
+		
+		[txtServerAddress setBezeled:isRunning];
+		[txtServerAddress setDrawsBackground:isRunning];
+		[txtServerAddress setEditable:isRunning];
+		[txtServerAddress setSelectable:isRunning];
+		[txtServerAddress setEnabled:isRunning];
+		
+		[txtInterval setBezeled:isRunning];
+		[txtInterval setDrawsBackground:isRunning];
+		[txtInterval setEditable:isRunning];
+		[txtInterval setSelectable:isRunning];
+		[txtInterval setEnabled:isRunning];
+		
+		isRunning = YES;
+		[menuConnect.view needsDisplay];
+		[menuConnect.view display];	
+		self.stickyServer = [[UrTServer alloc] initWithHost:txtServerAddress.stringValue 
+												 portNumber:[txtPort.stringValue intValue]];		
+		
+		[self updateInfo];
 	}
 	
-//	self.reconnectTimer = [NSTimer scheduledTimerWithTimeInterval:1 
-//														   target:self 
-//														 selector:@selector(updateInfo) 
-//														 userInfo:nil 
-//														  repeats:YES];
-	
-	[self performSelectorInBackground:@selector(updateInfo) withObject:nil];
-		
 }
 - (void) onPlayerSelect:(id)sender{
 	NSMenuItem* item = (NSMenuItem*)sender;
 	NSLog(@"Selected Player: %@", item.title);
+}
+#pragma mark - NSTextFieldDelegate
+- (BOOL)control:(NSControl *)control textShouldBeginEditing:(NSText *)fieldEditor{
+	isRunning = NO;
+	return YES;
 }
 @end

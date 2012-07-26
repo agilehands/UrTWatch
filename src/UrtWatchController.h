@@ -7,17 +7,22 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "UrTServer.h"
 
-@interface UrtWatchController : NSObject
+@interface UrtWatchController : NSObject<NSTextFieldDelegate>{
+	BOOL isRunning;
+}
 
 @property (nonatomic, strong) IBOutlet NSPanel* viewSettings;
 
 @property (nonatomic, strong) IBOutlet NSTextField* txtServerAddress;
 @property (nonatomic, strong) IBOutlet NSTextField* txtPort;
+@property (nonatomic, strong) IBOutlet NSTextField* txtInterval;
 @property (nonatomic, strong) IBOutlet NSProgressIndicator* connectionIndicator;
 @property (nonatomic, strong) IBOutlet NSButton* btnConnect;
 
 @property (nonatomic, strong) NSTimer* reconnectTimer;
+@property (nonatomic, strong) UrTServer* stickyServer;
 
 @property (nonatomic, strong) IBOutlet NSMenuItem* menuConnect;
 @property (nonatomic, strong) IBOutlet NSMenuItem* menuQuite;

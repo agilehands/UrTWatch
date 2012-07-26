@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022F1D7F15C141FE00BA8187 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D7E15C141FE00BA8187 /* Player.m */; };
+		022F1D8315C1430E00BA8187 /* RecordBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D8215C1430E00BA8187 /* RecordBook.m */; };
+		022F1D8715C15AF000BA8187 /* PlayerMenuItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D8515C15AF000BA8187 /* PlayerMenuItemViewController.m */; };
+		022F1D8815C15AF000BA8187 /* PlayerMenuItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D8615C15AF000BA8187 /* PlayerMenuItemViewController.xib */; };
+		022F1D8B15C15C4C00BA8187 /* player_item_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D8A15C15C4C00BA8187 /* player_item_bg.png */; };
+		022F1D8E15C15FE900BA8187 /* down.png in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D8C15C15FE900BA8187 /* down.png */; };
+		022F1D8F15C15FE900BA8187 /* up.png in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D8D15C15FE900BA8187 /* up.png */; };
+		022F1D9215C1631A00BA8187 /* PlayerMenuItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 022F1D9115C1631A00BA8187 /* PlayerMenuItemView.m */; };
+		022F1D9415C163FF00BA8187 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 022F1D9315C163FF00BA8187 /* UrTWatch.app */; };
 		0271E04F15C03D3E00A86F2D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0271E04E15C03D3E00A86F2D /* Cocoa.framework */; };
 		0271E05915C03D3F00A86F2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0271E05715C03D3F00A86F2D /* InfoPlist.strings */; };
 		0271E05B15C03D3F00A86F2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271E05A15C03D3F00A86F2D /* main.m */; };
@@ -21,7 +30,8 @@
 		0271E08615C03DB000A86F2D /* urbanterror.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08515C03DB000A86F2D /* urbanterror.png */; };
 		0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */; };
 		0271E08F15C03EA900A86F2D /* UrtWatchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0271E08E15C03EA900A86F2D /* UrtWatchController.m */; };
-		02E4F5B015C0C6EB008A94B0 /* UrTWatch.app in Resources */ = {isa = PBXBuildFile; fileRef = 02E4F5AF15C0C6EB008A94B0 /* UrTWatch.app */; };
+		02E4F5B415C122C4008A94B0 /* UrTServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4F5B315C122C4008A94B0 /* UrTServer.m */; };
+		02E4F5B515C122C4008A94B0 /* UrTServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 02E4F5B315C122C4008A94B0 /* UrTServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +45,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		022F1D7D15C141FE00BA8187 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = src/Model/Player.h; sourceTree = "<group>"; };
+		022F1D7E15C141FE00BA8187 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = src/Model/Player.m; sourceTree = "<group>"; };
+		022F1D8115C1430E00BA8187 /* RecordBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordBook.h; path = src/Model/RecordBook.h; sourceTree = "<group>"; };
+		022F1D8215C1430E00BA8187 /* RecordBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordBook.m; path = src/Model/RecordBook.m; sourceTree = "<group>"; };
+		022F1D8415C15AF000BA8187 /* PlayerMenuItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerMenuItemViewController.h; sourceTree = "<group>"; };
+		022F1D8515C15AF000BA8187 /* PlayerMenuItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerMenuItemViewController.m; sourceTree = "<group>"; };
+		022F1D8615C15AF000BA8187 /* PlayerMenuItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerMenuItemViewController.xib; sourceTree = "<group>"; };
+		022F1D8A15C15C4C00BA8187 /* player_item_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_item_bg.png; sourceTree = "<group>"; };
+		022F1D8C15C15FE900BA8187 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
+		022F1D8D15C15FE900BA8187 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
+		022F1D9015C1631A00BA8187 /* PlayerMenuItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerMenuItemView.h; sourceTree = "<group>"; };
+		022F1D9115C1631A00BA8187 /* PlayerMenuItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerMenuItemView.m; sourceTree = "<group>"; };
+		022F1D9315C163FF00BA8187 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
 		0271E04A15C03D3E00A86F2D /* UrTWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrTWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0271E04E15C03D3E00A86F2D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		0271E05115C03D3E00A86F2D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -59,7 +82,8 @@
 		0271E08715C03DC200A86F2D /* Urban-Terror-3-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Urban-Terror-3-icon.png"; sourceTree = "<group>"; };
 		0271E08D15C03EA900A86F2D /* UrtWatchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrtWatchController.h; path = src/UrtWatchController.h; sourceTree = "<group>"; };
 		0271E08E15C03EA900A86F2D /* UrtWatchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrtWatchController.m; path = src/UrtWatchController.m; sourceTree = "<group>"; };
-		02E4F5AF15C0C6EB008A94B0 /* UrTWatch.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = UrTWatch.app; sourceTree = "<group>"; };
+		02E4F5B215C122C4008A94B0 /* UrTServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UrTServer.h; path = src/Model/UrTServer.h; sourceTree = "<group>"; };
+		02E4F5B315C122C4008A94B0 /* UrTServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UrTServer.m; path = src/Model/UrTServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +107,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		022F1D8915C15C4C00BA8187 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				022F1D8C15C15FE900BA8187 /* down.png */,
+				022F1D8D15C15FE900BA8187 /* up.png */,
+				022F1D8A15C15C4C00BA8187 /* player_item_bg.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		0271E03F15C03D3D00A86F2D = {
 			isa = PBXGroup;
 			children = (
+				022F1D8915C15C4C00BA8187 /* images */,
 				02E4F5A915C07338008A94B0 /* dist */,
 				0271E09015C0421500A86F2D /* images */,
 				0271E08C15C03E4C00A86F2D /* src */,
@@ -171,8 +206,14 @@
 		0271E08C15C03E4C00A86F2D /* src */ = {
 			isa = PBXGroup;
 			children = (
+				02E4F5B115C11D34008A94B0 /* Model */,
 				0271E08D15C03EA900A86F2D /* UrtWatchController.h */,
 				0271E08E15C03EA900A86F2D /* UrtWatchController.m */,
+				022F1D8415C15AF000BA8187 /* PlayerMenuItemViewController.h */,
+				022F1D8515C15AF000BA8187 /* PlayerMenuItemViewController.m */,
+				022F1D8615C15AF000BA8187 /* PlayerMenuItemViewController.xib */,
+				022F1D9015C1631A00BA8187 /* PlayerMenuItemView.h */,
+				022F1D9115C1631A00BA8187 /* PlayerMenuItemView.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -189,9 +230,22 @@
 		02E4F5A915C07338008A94B0 /* dist */ = {
 			isa = PBXGroup;
 			children = (
-				02E4F5AF15C0C6EB008A94B0 /* UrTWatch.app */,
+				022F1D9315C163FF00BA8187 /* UrTWatch.app */,
 			);
 			path = dist;
+			sourceTree = "<group>";
+		};
+		02E4F5B115C11D34008A94B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02E4F5B215C122C4008A94B0 /* UrTServer.h */,
+				02E4F5B315C122C4008A94B0 /* UrTServer.m */,
+				022F1D7D15C141FE00BA8187 /* Player.h */,
+				022F1D7E15C141FE00BA8187 /* Player.m */,
+				022F1D8115C1430E00BA8187 /* RecordBook.h */,
+				022F1D8215C1430E00BA8187 /* RecordBook.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,7 +324,11 @@
 				0271E06515C03D3F00A86F2D /* MainMenu.xib in Resources */,
 				0271E08615C03DB000A86F2D /* urbanterror.png in Resources */,
 				0271E08815C03DC200A86F2D /* Urban-Terror-3-icon.png in Resources */,
-				02E4F5B015C0C6EB008A94B0 /* UrTWatch.app in Resources */,
+				022F1D8815C15AF000BA8187 /* PlayerMenuItemViewController.xib in Resources */,
+				022F1D8B15C15C4C00BA8187 /* player_item_bg.png in Resources */,
+				022F1D8E15C15FE900BA8187 /* down.png in Resources */,
+				022F1D8F15C15FE900BA8187 /* up.png in Resources */,
+				022F1D9415C163FF00BA8187 /* UrTWatch.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +367,11 @@
 				0271E06215C03D3F00A86F2D /* AppDelegate.m in Sources */,
 				0271E06815C03D3F00A86F2D /* UrTWatch.xcdatamodeld in Sources */,
 				0271E08F15C03EA900A86F2D /* UrtWatchController.m in Sources */,
+				02E4F5B415C122C4008A94B0 /* UrTServer.m in Sources */,
+				022F1D7F15C141FE00BA8187 /* Player.m in Sources */,
+				022F1D8315C1430E00BA8187 /* RecordBook.m in Sources */,
+				022F1D8715C15AF000BA8187 /* PlayerMenuItemViewController.m in Sources */,
+				022F1D9215C1631A00BA8187 /* PlayerMenuItemView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0271E07C15C03D3F00A86F2D /* UrTWatchTests.m in Sources */,
+				02E4F5B515C122C4008A94B0 /* UrTServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
