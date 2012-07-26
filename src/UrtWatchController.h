@@ -8,25 +8,25 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface UrtWatchController : NSObject{
+@interface UrtWatchController : NSObject
 
-IBOutlet NSMenu *statusMenu;
-
-/* The other stuff :P */
-NSStatusItem *statusItem;
-NSImage *statusImage;
-NSImage *statusHighlightImage;
-}
 @property (nonatomic, strong) IBOutlet NSPanel* viewSettings;
+
 @property (nonatomic, strong) IBOutlet NSTextField* txtServerAddress;
 @property (nonatomic, strong) IBOutlet NSTextField* txtPort;
 @property (nonatomic, strong) IBOutlet NSProgressIndicator* connectionIndicator;
 @property (nonatomic, strong) IBOutlet NSButton* btnConnect;
+
+@property (nonatomic, strong) NSTimer* reconnectTimer;
+
 @property (nonatomic, strong) IBOutlet NSMenuItem* menuConnect;
 @property (nonatomic, strong) IBOutlet NSMenuItem* menuQuite;
-@property (nonatomic, strong) NSTimer* reconnectTimer;
--(IBAction) onPlayerSelect:(id)sender;
+@property (nonatomic, strong) IBOutlet NSMenu *statusMenu;
+@property (nonatomic, strong) NSStatusItem *statusItem;
+@property (nonatomic, strong) NSImage *statusImage;
+@property (nonatomic, strong) NSImage *statusHighlightImage;
+
+
 -(IBAction)onSettings:(id)sender;
--(IBAction)onCloseSettings:(id)sender;
 -(IBAction)onGo:(id)sender;
 @end

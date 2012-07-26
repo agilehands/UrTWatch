@@ -19,15 +19,10 @@
 
 #define BUFFER_SIZE 1024*8*10
 
-void error(const char *msg)
-{
-    perror(msg);
-    exit(0);
-}
 @implementation UrtWatchController
 @synthesize viewSettings, txtPort, txtServerAddress;
 @synthesize menuQuite, menuConnect, connectionIndicator, reconnectTimer;
-@synthesize btnConnect;
+@synthesize btnConnect, statusMenu, statusItem, statusImage, statusHighlightImage;
 
 - (void) awakeFromNib{
 	
@@ -64,6 +59,10 @@ void error(const char *msg)
 	self.menuConnect = nil;
 	self.connectionIndicator = nil;
 	self.btnConnect = nil;
+	self.statusMenu = nil;
+	self.statusItem = nil;
+	self.statusImage  =nil;
+	self.statusHighlightImage  =nil;
 }
 
 - (void)updateInfo{
@@ -84,7 +83,7 @@ void error(const char *msg)
 				[btnConnect setHidden:NO];
 				[connectionIndicator setHidden:YES];
 			});			
-			error("socket");
+			[self error:"Failed to create socket"];
 			return;
 		}
 		
@@ -95,7 +94,7 @@ void error(const char *msg)
 				[btnConnect setHidden:NO];
 				[connectionIndicator setHidden:YES];
 			});	
-			error("Unknown host");
+			[self error:"Unknown host"];
 			return;
 		}
 		
@@ -109,9 +108,15 @@ void error(const char *msg)
 		//fgets(buffer,255,stdin);
 		n=sendto(sock,"\377\377\377\377getstatus",
 				 13,0,(const struct sockaddr *)&server,length);
-		if (n < 0) error("Sendto");
+		if (n < 0) {
+			[self error:"Failed to send message"];;
+			return;
+		}
 		n = recvfrom(sock,buffer,BUFFER_SIZE,0,(struct sockaddr *)&from, &length);
-		if (n < 0) error("recvfrom");
+		if (n < 0){
+			[self error:"Nothing received from host"];
+			return ;
+		}
 		write(1,"Got an ack: ",12);
 		write(1,buffer,n);
 		close(sock);
@@ -160,21 +165,20 @@ void error(const char *msg)
 			[statusMenu addItem:self.menuQuite];
 			
 			[btnConnect setHidden:NO];
-			[connectionIndicator setHidden:YES];
-			[statusMenu update];
+			[connectionIndicator setHidden:YES];			
 		});			
 	});
 }
-- (BOOL)menu:(NSMenu *)menu 
-  updateItem:(NSMenuItem *)item 
-	 atIndex:(NSInteger)index 
-shouldCancel:(BOOL)shouldCancel
+- (void)error:(const char*) msg
 {
-	
-    
-	
-    return NO;
+	NSRunAlertPanel(@"Error", [NSString stringWithCString:msg 
+												encoding:NSUTF8StringEncoding]
+					, @"Ok"
+					, nil
+					, nil);
+    perror(msg);
 }
+
 #pragma mark - IBActions
 -(IBAction)onSettings:(id)sender{
 }
